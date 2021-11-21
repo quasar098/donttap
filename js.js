@@ -260,12 +260,10 @@ if (CPX==hopX[i] && CPY==hopY[i])
     }
 }
 if (noErr==1) {
-Errr=1;
 cXX = cx-x0;
 cYY = cy-w/4;
 CoX=CPX;
 CoY=CPY;
-DrawError();
 wOLD = w;
 cXXo =cXX;
 cYYo =cYY;
