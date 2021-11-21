@@ -675,14 +675,14 @@ if (TimeL > 0 && Errr == 0)
 
 //Score.innerHTML="&nbsp;"+"0";
 Score.id = "score";
-Score.innerHTML="0";
+Score.innerHTML="bro ur garb";
 Score.style.position='center';
 //Score.style.left=Math.round(w/2.23)+"px";
 Score.style.top=sqsize/4+"px";
 Score.style.zIndex=11;
 Score.style.pointerEvents='none';
-Score.style.color='purple';
-Score.style.textAlign ="center";
+Score.style.color='white';
+Score.style.textAlign ="right";
 Score.style.fontSize=Math.round(sqsize/1.4)+'px';
 div.appendChild(Score);
 
