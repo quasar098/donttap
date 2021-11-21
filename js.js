@@ -8,6 +8,7 @@ setTimeout(function(){
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/donttap";
 }
 
+     
      function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
