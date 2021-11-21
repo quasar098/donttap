@@ -1,8 +1,7 @@
 # donttap v2
 
-This thing belongs to this guy 
-https://github.com/Sentero-esp12/donttap-2019
+just made this so i can flex that i am not missing any tiles at all
 
-created only for hosting because old website is dead
+there is 
 
-can delete this if there is any problems
+go
