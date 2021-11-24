@@ -764,8 +764,6 @@ PressKey.innerHTML="Press a key to start";}
 document.addEventListener("keydown", KeyPress);
 function KeyPress(event) {
 key = event.key;
-if (Patt == 0){
-Refresh(0);}else{RefrePP(0);}
 };
 
 
