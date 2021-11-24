@@ -111,7 +111,7 @@ zom.id = "zom";
     zom.style.display = "block";
     //zom.style.position='absolute';
     zom.style.cursor = "hand";
-    zom.style.color="white";
+    zom.style.color="purple";
     zom.style.width="200px";
     zom.style.pointerEvents='none';
     zom.style.textAlign ="center";
@@ -445,7 +445,7 @@ canvas.height = w;
 canvas.style.left=x0+"px";
 canvas.style.top=w/4+"px";
 context.lineWidth = 1;
-context.strokeStyle = '#33FF7F';
+context.strokeStyle = '#F0B3FF';
 context.beginPath();
 context.moveTo(0, 0);
 context.lineTo(w, 0);
@@ -697,7 +697,7 @@ Best.style.top=sqsize/3.6+"px";
 Best.style.zIndex=11;
 Best.style.marginTop="0px";
 Best.style.pointerEvents='none';
-Best.style.color='black';
+Best.style.color='darkblue';
 Best.style.textAlign ="center";
 Best.style.fontSize=Math.round(sqsize/5)+'px';
 div.appendChild(Best);
@@ -726,7 +726,7 @@ Time.style.padding=sqsize/8+'px';
 Time.style.top=0+"px";
 Time.style.zIndex=11;
 Time.style.pointerEvents='none';
-Time.style.color='green';
+Time.style.color='black';
 Time.style.textAlign ="left";
 Time.style.fontSize=Math.round(sqsize/1.8)+'px';
 div.appendChild(Time);
@@ -764,6 +764,8 @@ PressKey.innerHTML="Press a key to start";}
 document.addEventListener("keydown", KeyPress);
 function KeyPress(event) {
 key = event.key;
+if (Patt == 0){
+Refresh(0);}else{RefrePP(0);}
 };
 
 
