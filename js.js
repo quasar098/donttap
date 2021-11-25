@@ -8,7 +8,7 @@ setTimeout(function(){
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/donttap";
 }
 
-     
+
      function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -111,7 +111,7 @@ zom.id = "zom";
     zom.style.display = "block";
     //zom.style.position='absolute';
     zom.style.cursor = "hand";
-    zom.style.color="purple";
+    zom.style.color="#00ff6a";
     zom.style.width="200px";
     zom.style.pointerEvents='none';
     zom.style.textAlign ="center";
@@ -208,7 +208,7 @@ button.addEventListener ("click", function() {
  vertAr = [];
  hopX = [];
  hopY = [];
- 
+
 if (Patt == 0)
 {
 button.innerText = "Frenzy";
@@ -235,7 +235,7 @@ FreList();
 button.blur();
 });
 
-var PatAm=15;
+var PatAm=69;
 var hopX=[],hopY=[];
 var Pround=0;
 var CPX,CPY;
@@ -322,7 +322,7 @@ function RefrePP(p) {
  TimeP = 0;
  TimerPAT();
  drawPAT();
- PatAm=15;
+ PatAm=69;
  PressKey.innerHTML=PatAm;
  Pround=4;
     }
@@ -445,7 +445,7 @@ canvas.height = w;
 canvas.style.left=x0+"px";
 canvas.style.top=w/4+"px";
 context.lineWidth = 1;
-context.strokeStyle = '#F0B3FF';
+context.strokeStyle = '#0040ff';
 context.beginPath();
 context.moveTo(0, 0);
 context.lineTo(w, 0);
@@ -498,7 +498,6 @@ canvasB.style.top=w/4+"px";
 function CanvasBlack() {
 canvasB.width = w;
 canvasB.height = w;
-canvasB.style.left=x0+"px";
 canvasB.style.top=w/4+"px";
 contextB.clearRect(0, 0, canvasB.width, canvasB.height);
 if (Patt==0){DrawBlack();}else{DrawBlackPat();}
@@ -506,9 +505,9 @@ if (Patt==0){DrawBlack();}else{DrawBlackPat();}
 
 var p=0;
 function Refresh(p) {
- Bonus = 0;
+sc = 0;
+   if (p==0){
  contextB.clearRect(0, 0, canvasB.width, canvasB.height);
- sc=0;
  good = 1;
  Errr=0;
  Score.innerHTML="0";
@@ -516,7 +515,6 @@ function Refresh(p) {
  if (FreRec.length>0){
     Best.innerHTML="HI-SCORE<br>"+FreRec[0].record;}else{Best.innerHTML="HI-SCORE<br>";}
  clearInterval(timerGP);
-   if (p==0){
  clearInterval(timerGO);
  timerWent = false;
  TimeL = 30;
@@ -595,16 +593,11 @@ contextB.fill();
 }
 }
 
-      if (good==0) {
-          Errr=1;
 cXX = cx-x0;
 cYY = cy-w/4;
-DrawError();
 wOLD = w;
 cXXo =cXX;
 cYYo =cYY;
-
-      }
       good = 0;
 }
 var today;
@@ -651,7 +644,7 @@ contextB.fillStyle = '#AF1800';
 contextB.closePath();
 contextB.fill();
 contextB.lineWidth = 1;
-contextB.strokeStyle = '#0011DA';
+contextB.strokeStyle = '#000000';
           contextB.beginPath();
 contextB.moveTo(cXX-5, cYY);
 contextB.lineTo(cXX+5, cYY);
@@ -711,7 +704,7 @@ PressKey.style.position='relative';
 PressKey.style.top=w*1.07+"px";
 PressKey.style.zIndex=11;
 PressKey.style.pointerEvents='none';
-//PressKey.style.color='blue';
+PressKey.style.color='white';
 PressKey.style.textAlign ="center";
 PressKey.style.fontSize=Math.round(sqsize/3)+'px';
 //PressKey.style.style.fontFamily = "Comic Sans MS, cursive, sans-serif";
@@ -735,7 +728,7 @@ function CalculateScore() {
 B5=Math.ceil(Bonus/20);
 sc=sc+B5;
 Score.innerHTML=sc;
-PressKey.innerHTML=B5;
+PressKey.innerHTML=B5 + " | " + sc;
 };
 
      function Timer() {
@@ -744,7 +737,7 @@ timerGO = setInterval(function() {
 TimeL = (TimeL-0.1).toFixed(1);
 if (Bonus>3){
     Bonus=Math.round((Bonus-3)*10)/10;}else{Bonus=0.1;}
-    PressKey.innerHTML=Math.ceil(Bonus/20);
+    PressKey.innerHTML=Math.ceil(Bonus/20) + " | " + sc;
     //console.log(Bonus,"3");
     //console.log(Bonus);
 Time.innerHTML=TimeL;
