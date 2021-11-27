@@ -235,7 +235,7 @@ FreList();
 button.blur();
 });
 
-var PatAm=69;
+var PatAm=10;
 var hopX=[],hopY=[];
 var Pround=0;
 var CPX,CPY;
@@ -322,7 +322,7 @@ function RefrePP(p) {
  TimeP = 0;
  TimerPAT();
  drawPAT();
- PatAm=69;
+ PatAm=10;
  PressKey.innerHTML=PatAm;
  Pround=4;
     }
@@ -506,18 +506,19 @@ if (Patt==0){DrawBlack();}else{DrawBlackPat();}
 var p=0;
 function Refresh(p) {
 sc = 0;
+B5 = 0;
    if (p==0){
  contextB.clearRect(0, 0, canvasB.width, canvasB.height);
  good = 1;
  Errr=0;
  Score.innerHTML="0";
- Time.innerHTML="30";
+ Time.innerHTML="20";
  if (FreRec.length>0){
     Best.innerHTML="HI-SCORE<br>"+FreRec[0].record;}else{Best.innerHTML="HI-SCORE<br>";}
  clearInterval(timerGP);
  clearInterval(timerGO);
  timerWent = false;
- TimeL = 30;
+ TimeL = 20;
  Timer();
     //DrawSquares();
  horiAr[0] = Math.floor(Math.random() * (4 - 1 + 1));
@@ -712,7 +713,7 @@ div.appendChild(PressKey);
 
 //Score.innerHTML="&nbsp;"+"0";
 Time.id = "time";
-Time.innerHTML="30";
+Time.innerHTML="20";
 Time.style.position='absolute';
 Time.style.padding=sqsize/8+'px';
 //Score.style.left=Math.round(w/2.23)+"px";
