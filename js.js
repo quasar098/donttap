@@ -30,7 +30,6 @@ setTimeout(function(){
 
 var PatRec=[];
 var FreRec=[];
-console.log(read_cookie("records"),read_cookie("recordsP"))
 if (read_cookie("records") != null && read_cookie("records") != ""){FreRec=read_cookie("records");}
 if (read_cookie("recordsP") != null && read_cookie("recordsP") != ""){PatRec=read_cookie("recordsP");}
 var key;
@@ -43,6 +42,7 @@ var PressKey = document.createElement("div");
 var Score = document.createElement("div");
 var Errr=0;
 var timerWent=true;
+var mouseToBeClicked = true;  // this is so that z and x can be used (for osu players benefit)
 var cx,cy,CoX,CoY;
 var horT,verT,doit=0,n=0;
 var OtherTiles = [];
@@ -196,12 +196,25 @@ Rec.innerHTML+="<br>";}}
    function FreList(){
 Rec.innerHTML="FRENZY:<br>";
 for (var z=0;z<FreRec.length;z++){
-       console.log("Lll");
 Rec.innerHTML+=FreRec[z].record;
 Rec.innerHTML+=" — ";
 Rec.innerHTML+=FreRec[z].date;
 Rec.innerHTML+="<br>";
 }}
+
+function ZXfrenzy(event) {
+if (mouseToBeClicked){
+mouseToBeClicked = false;
+ClickTile(event)
+}
+}
+
+function ZXpattern(event) {
+if (mouseToBeClicked) {
+mouseToBeClicked = false;
+ClickPattern(event)
+}
+}
 
 button.addEventListener ("click", function() {
  horiAr = [];
@@ -214,8 +227,10 @@ if (Patt == 0)
 button.innerText = "Frenzy";
 Patt = 1;
 setCookie("Patt", "1");
-canvas.removeEventListener("mousedown", ClickTile);
+canvas.removeEventListener("mousemove", ZXfrenzy);
+canvas.addEventListener("mousemove", ZXpattern);
 canvas.addEventListener("mousedown", ClickPattern);
+canvas.removeEventListener("mousedown", ClickTile);
 RefrePP(1);
    // if (RecSh=="1"){
     PatList();
@@ -225,6 +240,8 @@ RefrePP(1);
 button.innerText = "Patterns";
 Patt = 0;
 setCookie("Patt", "0");
+canvas.addEventListener("mousemove", ZXfrenzy);
+canvas.removeEventListener("mousemove", ZXpattern);
 canvas.removeEventListener("mousedown", ClickPattern);
 canvas.addEventListener("mousedown", ClickTile);
 Refresh(1);
@@ -412,8 +429,6 @@ DrawError();
 PressKey.style.top=w*1.07+"px";
 PressKey.style.fontSize=Math.round(sqsize/3)+'px';
 setCookie("Zoom", slider.value);
-        console.log(getCookie("Zoom"));
-console.log(x0);
    if (x0<200){
        slider.style.transform ="rotate(90deg)";
        slider.style.marginTop=100+"px";
@@ -639,7 +654,6 @@ function read_cookie(name) {
 
 function DrawError() {
 contextB.beginPath();
-    console.log(CoX,CoY);
 contextB.rect(CoX*sqsize,CoY*sqsize,sqsize,sqsize);
 contextB.fillStyle = '#AF1800';
 contextB.closePath();
@@ -657,6 +671,7 @@ contextB.lineTo(cXX, cYY+5);
 };
 
 canvas.addEventListener("mousedown", ClickTile);
+canvas.addEventListener("mousemove", ZXfrenzy);
 
 function ClickTile() {
     cx = event.clientX;
@@ -759,7 +774,20 @@ document.addEventListener("keydown", KeyPress);
 function KeyPress(event) {
 key = event.key;
 if (Patt == 0){
-Refresh(0);}else{RefrePP(0);}
+if (event.keyCode.toString() == 90 || event.keyCode.toString() == 88) {
+mouseToBeClicked = true;
+}
+else{
+Refresh(0);
+}
+}else{
+if (event.keyCode.toString() == 90 || event.keyCode.toString() == 88){
+mouseToBeClicked = true;
+}
+else{
+RefrePP(0);
+}
+}
 };
 
 
